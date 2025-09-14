@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Final Admission Result - DCU</title>
+  <style>
+    /* General Body Styles */
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: #f0f2f5;
+    }
+
+    /* Header Styles */
+    header {
+      background-color: #0d2d52;
+      color: white;
+      padding: 20px 30px;
+      font-size: 1.1rem;
+    }
+
+    /* Main Container Layout */
+    .container {
+      display: flex;
+    }
+
+    /* Sidebar Styles */
+    .sidebar {
+      width: 260px;
+      background-color: #fdfdfd;
+      padding: 20px;
+      border-right: 1px solid #dee2e6;
+      height: calc(100vh - 67px); /* Full height minus header */
+      display: flex;
+      flex-direction: column;
+    }
+    .sidebar-header {
+      text-align: center;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #dee2e6;
+    }
+    .buet-logo {
+        width: 130px;
+        height: auto;
+        margin-bottom: 10px;
+    }
+    .logo-text {
+        font-weight: bold;
+        font-size: 1.2rem;
+        color: #333;
+    }
+    .menu {
+      list-style: none;
+      padding: 20px 0;
+      margin: 0;
+    }
+    .menu-item {
+      display: flex;
+      align-items: center;
+      padding: 12px 15px;
+      color: #333;
+      text-decoration: none;
+      margin-bottom: 10px;
+      font-size: 1rem;
+    }
+    .menu-item .icon {
+      margin-right: 15px;
+      font-size: 1.3rem;
+    }
+    .sidebar-footer {
+        margin-top: auto;
+        text-align: center;
+        padding-top: 20px;
+        font-size: 0.9rem;
+        color: #6c757d;
+    }
+    .sidebar-footer .bold {
+        font-weight: bold;
+        color: #0d2d52;
+        text-decoration: none;
+    }
+
+    /* Main Content Styles */
+    .main {
+      flex: 1;
+      padding: 25px;
+    }
+    .result-block {
+        background-color: #ffffff;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        margin-bottom: 25px;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+    .result-block-title {
+        background-color: #e7e7e7;
+        padding: 12px 15px;
+        margin: 0;
+        font-size: 1.15rem;
+        color: #333;
+        font-weight: bold;
+        border-bottom: 1px solid #ccc;
+        border-radius: 4px 4px 0 0;
+    }
+    .result-block-body {
+        padding: 15px;
+    }
+    
+    /* Applicant Info Table Styles */
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+    }
+    .data-table td {
+      padding: 9px;
+      border: 1px solid #dcdcdc;
+    }
+    .data-table tr td:nth-child(odd) { 
+        font-weight: bold;
+        width: 20%;
+    }
+    
+    /* Allocation Result Block Styles */
+    .allocated-block {
+        background-color: #d4edda;
+        border: 1px solid #c3e6cb;
+        color: #155724;
+        padding: 20px;
+        text-align: center;
+        border-radius: 5px;
+        margin-bottom: 25px;
+    }
+    .allocated-block h2 {
+        margin-top: 0;
+        font-size: 1.5rem;
+    }
+    .allocated-block p {
+        margin: 5px 0 0;
+        font-size: 1.2rem;
+    }
+    .allocated-block .subject-name {
+        font-weight: bold;
+        font-size: 1.4rem;
+    }
+    
+    /* Choice List Result Table Styles */
+    .result-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.95rem;
+    }
+    .result-table th, .result-table td {
+        border: 1px solid #dcdcdc;
+        padding: 9px;
+        text-align: left;
+    }
+    .result-table th {
+        background-color: #f0f0f0;
+        font-weight: bold;
+        text-align: center;
+    }
+    .result-table td:nth-child(1), .result-table td:nth-child(3) {
+       text-align: center;
+       width: 8%;
+    }
+    .result-table td:nth-child(5) {
+        text-align: center;
+    }
+
+    /* Status Text Color Styles */
+    .status-allocated {
+        color: #28a745;
+        font-weight: bold;
+    }
+    .status-waiting {
+        color: #f0ad4e;
+        font-weight: bold;
+    }
+    .status-not-considered {
+        color: #777;
+    }
+
+  </style>
+</head>
+<body>
+
+  <header>
+    Proposed Dhaka Central University (Implementation In Progress) Admission Management System
+  </header>
+
+  <div class="container">
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <img src="https://dcuadmission.org/images/cse-buet.png" alt="CSE, BUET Logo" class="buet-logo" />
+        <div class="logo-text">CSE, BUET</div>
+      </div>
+
+      <nav class="menu">
+        <div class="menu-item">
+          <span class="icon">📄</span>
+          <span class="text">Notice</span>
+        </div>
+        <div class="menu-item">
+          <span class="icon">🔍</span>
+          <span class="text">Search Student</span>
+        </div>
+      </nav>
+      
+      <div class="sidebar-footer">
+        <p>&copy; 2025 - 26 <a href="https://cse.buet.ac.bd/" class="bold">CSE, BUET</a></p>
+      </div>
+    </aside>
+
+    <main class="main">
+        <div class="result-block">
+            <h3 class="result-block-title">Applicant Information</h3>
+            <div class="result-block-body">
+                <table class="data-table">
+                    <tbody>
+                        <tr>
+                            <td>Name</td>
+                            <td>MD. SADMAN SADIK LIMON</td>
+                        </tr>
+                        <tr>
+                            <td>Roll No.</td>
+                            <td>3312228</td>
+                        </tr>
+                        <tr>
+                            <td>Merit Position</td>
+                            <td>1342</td>
+                        </tr>
+                        <tr>
+                            <td>Unit</td>
+                            <td>SCIENCE</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="allocated-block">
+            <h2>Congratulations!</h2>
+            <p>You have been primarily allocated to:</p>
+            <p class="subject-name">Finance</p>
+            <p>at <strong>Dhaka College</strong> (Choice No. 87)</p>
+        </div>
+
+        <div class="result-block">
+            <h3 class="result-block-title">Submitted Choice List & Status</h3>
+            <div class="result-block-body">
+                <table class="result-table">
+                    <thead>
+                        <tr>
+                            <th>Choice No.</th>
+                            <th>College</th>
+                            <th>Unit</th>
+                            <th>Subject</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- A Unit Choices -->
+                        <tr><td>1</td><td>Dhaka College</td><td>A</td><td>Physics</td><td class="status-waiting">Waiting (Position: 657)</td></tr>
+                        <tr><td>2</td><td>Dhaka College</td><td>A</td><td>Chemistry</td><td class="status-waiting">Waiting (Position: 663)</td></tr>
+                        <tr><td>3</td><td>Dhaka College</td><td>A</td><td>Mathematics</td><td class="status-waiting">Waiting (Position: 652)</td></tr>
+                        <tr><td>4</td><td>Dhaka College</td><td>A</td><td>Zoology</td><td class="status-waiting">Waiting (Position: 681)</td></tr>
+                        <tr><td>5</td><td>Dhaka College</td><td>A</td><td>Botany</td><td class="status-waiting">Waiting (Position: 695)</td></tr>
+                        <tr><td>6</td><td>Dhaka College</td><td>A</td><td>Statistics</td><td class="status-waiting">Waiting (Position: 702)</td></tr>
+                        <tr><td>7</td><td>Dhaka College</td><td>A</td><td>Psychology</td><td class="status-waiting">Waiting (Position: 715)</td></tr>
+                        <tr><td>8</td><td>Titumir College</td><td>A</td><td>Physics</td><td class="status-waiting">Waiting (Position: 678)</td></tr>
+                        <tr><td>9</td><td>Titumir College</td><td>A</td><td>Chemistry</td><td class="status-waiting">Waiting (Position: 684)</td></tr>
+                        <tr><td>10</td><td>Titumir College</td><td>A</td><td>Mathematics</td><td class="status-waiting">Waiting (Position: 671)</td></tr>
+                        <tr><td>11</td><td>Titumir College</td><td>A</td><td>Zoology</td><td class="status-waiting">Waiting (Position: 705)</td></tr>
+                        <tr><td>12</td><td>Titumir College</td><td>A</td><td>Botany</td><td class="status-waiting">Waiting (Position: 719)</td></tr>
+                        <tr><td>13</td><td>Titumir College</td><td>A</td><td>Statistics</td><td class="status-waiting">Waiting (Position: 728)</td></tr>
+                        <tr><td>14</td><td>Titumir College</td><td>A</td><td>Psychology</td><td class="status-waiting">Waiting (Position: 740)</td></tr>
+                        <tr><td>15</td><td>Govt. Bangla College</td><td>A</td><td>Physics</td><td class="status-waiting">Waiting (Position: 701)</td></tr>
+                        <tr><td>16</td><td>Govt. Bangla College</td><td>A</td><td>Chemistry</td><td class="status-waiting">Waiting (Position: 708)</td></tr>
+                        <tr><td>17</td><td>Govt. Bangla College</td><td>A</td><td>Mathematics</td><td class="status-waiting">Waiting (Position: 694)</td></tr>
+                        <tr><td>18</td><td>Govt. Bangla College</td><td>A</td><td>Zoology</td><td class="status-waiting">Waiting (Position: 729)</td></tr>
+                        <tr><td>19</td><td>Govt. Bangla College</td><td>A</td><td>Botany</td><td class="status-waiting">Waiting (Position: 742)</td></tr>
+                        <tr><td>20</td><td>Govt. Bangla College</td><td>A</td><td>Statistics</td><td class="status-waiting">Waiting (Position: 751)</td></tr>
+                        <tr><td>21</td><td>Govt. Bangla College</td><td>A</td><td>Psychology</td><td class="status-waiting">Waiting (Position: 763)</td></tr>
+                        <tr><td>22</td><td>Govt. Suhrawardi College</td><td>A</td><td>Physics</td><td class="status-waiting">Waiting (Position: 725)</td></tr>
+                        <tr><td>23</td><td>Govt. Suhrawardi College</td><td>A</td><td>Chemistry</td><td class="status-waiting">Waiting (Position: 732)</td></tr>
+                        <tr><td>24</td><td>Govt. Suhrawardi College</td><td>A</td><td>Mathematics</td><td class="status-waiting">Waiting (Position: 718)</td></tr>
+                        <tr><td>25</td><td>Govt. Suhrawardi College</td><td>A</td><td>Zoology</td><td class="status-waiting">Waiting (Position: 753)</td></tr>
+                        <tr><td>26</td><td>Govt. Suhrawardi College</td><td>A</td><td>Botany</td><td class="status-waiting">Waiting (Position: 767)</td></tr>
+                        <tr><td>27</td><td>Govt. Suhrawardi College</td><td>A</td><td>Statistics</td><td class="status-waiting">Waiting (Position: 775)</td></tr>
+                        <tr><td>28</td><td>Govt. Suhrawardi College</td><td>A</td><td>Psychology</td><td class="status-waiting">Waiting (Position: 788)</td></tr>
+                        <tr><td>29</td><td>Govt. Kabi Nazrul College</td><td>A</td><td>Physics</td><td class="status-waiting">Waiting (Position: 749)</td></tr>
+                        <tr><td>30</td><td>Govt. Kabi Nazrul College</td><td>A</td><td>Chemistry</td><td class="status-waiting">Waiting (Position: 756)</td></tr>
+                        <tr><td>31</td><td>Govt. Kabi Nazrul College</td><td>A</td><td>Mathematics</td><td class="status-waiting">Waiting (Position: 741)</td></tr>
+                        <tr><td>32</td><td>Govt. Kabi Nazrul College</td><td>A</td><td>Zoology</td><td class="status-waiting">Waiting (Position: 777)</td></tr>
+                        <tr><td>33</td><td>Govt. Kabi Nazrul College</td><td>A</td><td>Botany</td><td class="status-waiting">Waiting (Position: 791)</td></tr>
+                        <tr><td>34</td><td>Govt. Kabi Nazrul College</td><td>A</td><td>Statistics</td><td class="status-waiting">Waiting (Position: 800)</td></tr>
+                        <tr><td>35</td><td>Govt. Kabi Nazrul College</td><td>A</td><td>Psychology</td><td class="status-waiting">Waiting (Position: 812)</td></tr>
+
+                        <!-- B Unit Choices -->
+                        <tr><td>36</td><td>Dhaka College</td><td>B</td><td>English</td><td class="status-waiting">Waiting (Position: 479)</td></tr>
+                        <tr><td>37</td><td>Dhaka College</td><td>B</td><td>Economics</td><td class="status-waiting">Waiting (Position: 485)</td></tr>
+                        <tr><td>38</td><td>Dhaka College</td><td>B</td><td>Bangla</td><td class="status-waiting">Waiting (Position: 474)</td></tr>
+                        <tr><td>39</td><td>Dhaka College</td><td>B</td><td>Political Science</td><td class="status-waiting">Waiting (Position: 501)</td></tr>
+                        <tr><td>40</td><td>Dhaka College</td><td>B</td><td>History</td><td class="status-waiting">Waiting (Position: 523)</td></tr>
+                        <tr><td>41</td><td>Dhaka College</td><td>B</td><td>Islamic History...</td><td class="status-waiting">Waiting (Position: 530)</td></tr>
+                        <tr><td>42</td><td>Dhaka College</td><td>B</td><td>Philosophy</td><td class="status-waiting">Waiting (Position: 542)</td></tr>
+                        <tr><td>43</td><td>Dhaka College</td><td>B</td><td>Islamic Studies</td><td class="status-waiting">Waiting (Position: 555)</td></tr>
+                        <tr><td>44</td><td>Dhaka College</td><td>B</td><td>Sociology</td><td class="status-waiting">Waiting (Position: 495)</td></tr>
+                        <tr><td>45</td><td>Dhaka College</td><td>B</td><td>Social Work</td><td class="status-waiting">Waiting (Position: 510)</td></tr>
+                        <tr><td>46</td><td>Titumir College</td><td>B</td><td>English</td><td class="status-waiting">Waiting (Position: 505)</td></tr>
+                        <tr><td>47</td><td>Titumir College</td><td>B</td><td>Economics</td><td class="status-waiting">Waiting (Position: 512)</td></tr>
+                        <tr><td>48</td><td>Titumir College</td><td>B</td><td>Bangla</td><td class="status-waiting">Waiting (Position: 498)</td></tr>
+                        <tr><td>49</td><td>Titumir College</td><td>B</td><td>Political Science</td><td class="status-waiting">Waiting (Position: 528)</td></tr>
+                        <tr><td>50</td><td>Titumir College</td><td>B</td><td>History</td><td class="status-waiting">Waiting (Position: 549)</td></tr>
+                        <tr><td>51</td><td>Titumir College</td><td>B</td><td>Islamic History...</td><td class="status-waiting">Waiting (Position: 557)</td></tr>
+                        <tr><td>52</td><td>Titumir College</td><td>B</td><td>Philosophy</td><td class="status-waiting">Waiting (Position: 568)</td></tr>
+                        <tr><td>53</td><td>Titumir College</td><td>B</td><td>Islamic Studies</td><td class="status-waiting">Waiting (Position: 581)</td></tr>
+                        <tr><td>54</td><td>Titumir College</td><td>B</td><td>Sociology</td><td class="status-waiting">Waiting (Position: 520)</td></tr>
+                        <tr><td>55</td><td>Titumir College</td><td>B</td><td>Social Work</td><td class="status-waiting">Waiting (Position: 535)</td></tr>
+                        <tr><td>56</td><td>Govt. Bangla College</td><td>B</td><td>English</td><td class="status-waiting">Waiting (Position: 531)</td></tr>
+                        <tr><td>57</td><td>Govt. Bangla College</td><td>B</td><td>Economics</td><td class="status-waiting">Waiting (Position: 538)</td></tr>
+                        <tr><td>58</td><td>Govt. Bangla College</td><td>B</td><td>Bangla</td><td class="status-waiting">Waiting (Position: 522)</td></tr>
+                        <tr><td>59</td><td>Govt. Bangla College</td><td>B</td><td>Political Science</td><td class="status-waiting">Waiting (Position: 554)</td></tr>
+                        <tr><td>60</td><td>Govt. Bangla College</td><td>B</td><td>History</td><td class="status-waiting">Waiting (Position: 575)</td></tr>
+                        <tr><td>61</td><td>Govt. Bangla College</td><td>B</td><td>Islamic History...</td><td class="status-waiting">Waiting (Position: 583)</td></tr>
+                        <tr><td>62</td><td>Govt. Bangla College</td><td>B</td><td>Philosophy</td><td class="status-waiting">Waiting (Position: 594)</td></tr>
+                        <tr><td>63</td><td>Govt. Bangla College</td><td>B</td><td>Islamic Studies</td><td class="status-waiting">Waiting (Position: 607)</td></tr>
+                        <tr><td>64</td><td>Govt. Bangla College</td><td>B</td><td>Sociology</td><td class="status-waiting">Waiting (Position: 546)</td></tr>
+                        <tr><td>65</td><td>Govt. Bangla College</td><td>B</td><td>Social Work</td><td class="status-waiting">Waiting (Position: 561)</td></tr>
+                        <tr><td>66</td><td>Govt. Suhrawardi College</td><td>B</td><td>English</td><td class="status-waiting">Waiting (Position: 558)</td></tr>
+                        <tr><td>67</td><td>Govt. Suhrawardi College</td><td>B</td><td>Economics</td><td class="status-waiting">Waiting (Position: 565)</td></tr>
+                        <tr><td>68</td><td>Govt. Suhrawardi College</td><td>B</td><td>Bangla</td><td class="status-waiting">Waiting (Position: 549)</td></tr>
+                        <tr><td>69</td><td>Govt. Suhrawardi College</td><td>B</td><td>Political Science</td><td class="status-waiting">Waiting (Position: 581)</td></tr>
+                        <tr><td>70</td><td>Govt. Suhrawardi College</td><td>B</td><td>History</td><td class="status-waiting">Waiting (Position: 602)</td></tr>
+                        <tr><td>71</td><td>Govt. Suhrawardi College</td><td>B</td><td>Islamic History...</td><td class="status-waiting">Waiting (Position: 610)</td></tr>
+                        <tr><td>72</td><td>Govt. Suhrawardi College</td><td>B</td><td>Philosophy</td><td class="status-waiting">Waiting (Position: 621)</td></tr>
+                        <tr><td>73</td><td>Govt. Suhrawardi College</td><td>B</td><td>Islamic Studies</td><td class="status-waiting">Waiting (Position: 634)</td></tr>
+                        <tr><td>74</td><td>Govt. Suhrawardi College</td><td>B</td><td>Sociology</td><td class="status-waiting">Waiting (Position: 573)</td></tr>
+                        <tr><td>75</td><td>Govt. Suhrawardi College</td><td>B</td><td>Social Work</td><td class="status-waiting">Waiting (Position: 588)</td></tr>
+                        <tr><td>76</td><td>Govt. Kabi Nazrul College</td><td>B</td><td>English</td><td class="status-waiting">Waiting (Position: 585)</td></tr>
+                        <tr><td>77</td><td>Govt. Kabi Nazrul College</td><td>B</td><td>Economics</td><td class="status-waiting">Waiting (Position: 592)</td></tr>
+                        <tr><td>78</td><td>Govt. Kabi Nazrul College</td><td>B</td><td>Bangla</td><td class="status-waiting">Waiting (Position: 576)</td></tr>
+                        <tr><td>79</td><td>Govt. Kabi Nazrul College</td><td>B</td><td>Political Science</td><td class="status-waiting">Waiting (Position: 608)</td></tr>
+                        <tr><td>80</td><td>Govt. Kabi Nazrul College</td><td>B</td><td>History</td><td class="status-waiting">Waiting (Position: 629)</td></tr>
+                        <tr><td>81</td><td>Govt. Kabi Nazrul College</td><td>B</td><td>Islamic History...</td><td class="status-waiting">Waiting (Position: 637)</td></tr>
+                        <tr><td>82</td><td>Govt. Kabi Nazrul College</td><td>B</td><td>Philosophy</td><td class="status-waiting">Waiting (Position: 648)</td></tr>
+                        <tr><td>83</td><td>Govt. Kabi Nazrul College</td><td>B</td><td>Islamic Studies</td><td class="status-waiting">Waiting (Position: 661)</td></tr>
+                        <tr><td>84</td><td>Govt. Kabi Nazrul College</td><td>B</td><td>Sociology</td><td class="status-waiting">Waiting (Position: 600)</td></tr>
+                        <tr><td>85</td><td>Govt. Kabi Nazrul College</td><td>B</td><td>Social Work</td><td class="status-waiting">Waiting (Position: 615)</td></tr>
+                        
+                        <!-- C Unit Choices -->
+                        <tr><td>86</td><td>Dhaka College</td><td>C</td><td>Accounting...</td><td class="status-waiting">Waiting (Position: 2)</td></tr>
+                        <tr><td>87</td><td>Dhaka College</td><td>C</td><td>Finance</td><td class="status-allocated">Allocated</td></tr>
+                        <tr><td>88</td><td>Dhaka College</td><td>C</td><td>Management Studies</td><td class="status-not-considered">Not Considered</td></tr>
+                        <tr><td>89</td><td>Dhaka College</td><td>C</td><td>Marketing</td><td class="status-not-considered">Not Considered</td></tr>
+                        <tr><td>90</td><td>Titumir College</td><td>C</td><td>Accounting...</td><td class="status-not-considered">Not Considered</td></tr>
+                        <tr><td>91</td><td>Titumir College</td><td>C</td><td>Finance</td><td class="status-not-considered">Not Considered</td></tr>
+                        <tr><td>92</td><td>Titumir College</td><td>C</td><td>Management Studies</td><td class="status-not-considered">Not Considered</td></tr>
+                        <tr><td>93</td><td>Titumir College</td><td>C</td><td>Marketing</td><td class="status-not-considered">Not Considered</td></tr>
+                        <tr><td>94</td><td>Govt. Bangla College</td><td>C</td><td>Accounting...</td><td class="status-not-considered">Not Considered</td></tr>
+                        <tr><td>95</td><td>Govt. Bangla College</td><td>C</td><td>Finance</td><td class="status-not-considered">Not Considered</td></tr>
+                        <tr><td>96</td><td>Govt. Bangla College</td><td>C</td><td>Management Studies</td><td class="status-not-considered">Not Considered</td></tr>
+                        <tr><td>97</td><td>Govt. Bangla College</td><td>C</td><td>Marketing</td><td class="status-not-considered">Not Considered</td></tr>
+                        <tr><td>98</td><td>Govt. Suhrawardi College</td><td>C</td><td>Accounting...</td><td class="status-not-considered">Not Considered</td></tr>
+                        <tr><td>99</td><td>Govt. Suhrawardi College</td><td>C</td><td>Finance</td><td class="status-not-considered">Not Considered</td></tr>
+                        <tr><td>100</td><td>Govt. Suhrawardi College</td><td>C</td><td>Management Studies</td><td class="status-not-considered">Not Considered</td></tr>
+                        <tr><td>101</td><td>Govt. Suhrawardi College</td><td>C</td><td>Marketing</td><td class="status-not-considered">Not Considered</td></tr>
+                        <tr><td>102</td><td>Govt. Kabi Nazrul College</td><td>C</td><td>Accounting...</td><td class="status-not-considered">Not Considered</td></tr>
+                        <tr><td>103</td><td>Govt. Kabi Nazrul College</td><td>C</td><td>Finance</td><td class="status-not-considered">Not Considered</td></tr>
+                        <tr><td>104</td><td>Govt. Kabi Nazrul College</td><td>C</td><td>Management Studies</td><td class="status-not-considered">Not Considered</td></tr>
+                        <tr><td>105</td><td>Govt. Kabi Nazrul College</td><td>C</td><td>Marketing</td><td class="status-not-considered">Not Considered</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+  </div>
+</body>
+</html>
