@@ -127,7 +127,7 @@
         background-color: #d4edda;
         border: 1px solid #c3e6cb;
         color: #155724;
-        padding: 20px;
+        padding: 25px;
         text-align: center;
         border-radius: 5px;
         margin-bottom: 25px;
@@ -143,6 +143,59 @@
     .allocated-block .subject-name {
         font-weight: bold;
         font-size: 1.4rem;
+    }
+
+    /* === UPDATED PAYMENT SECTION STYLES === */
+    .payment-instruction {
+        margin-top: 25px;
+        padding-top: 20px;
+        border-top: 1px solid #b1dfbb;
+    }
+    .payment-instruction h3 {
+        margin-top: 0;
+        margin-bottom: 10px;
+        font-size: 1.3rem;
+        color: #155724;
+    }
+    .payment-buttons-container {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        margin-top: 20px;
+        flex-wrap: wrap;
+    }
+    .payment-box {
+        background-color: #fff;
+        border: 1px solid #b1dfbb;
+        border-radius: 8px;
+        padding: 20px;
+        width: 280px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+    .payment-box h4 {
+        margin-top: 0;
+        font-size: 1.1rem;
+        color: #0d2d52;
+    }
+    .payment-box p {
+        font-size: 1rem;
+        margin-bottom: 15px;
+        color: #333;
+    }
+    .btn-payment {
+        display: inline-block;
+        padding: 12px 25px;
+        font-size: 1rem;
+        font-weight: bold;
+        color: #fff;
+        background-color: #28a745;
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+        transition: background-color 0.3s;
+    }
+    .btn-payment:hover {
+        background-color: #218838;
     }
     
     /* Choice List Result Table Styles */
@@ -245,6 +298,23 @@
             <p>You have been primarily allocated to:</p>
             <p class="subject-name">Finance</p>
             <p>at <strong>Dhaka College</strong> (Choice No. 87)</p>
+            
+            <!-- === UPDATED PAYMENT SECTION WITH BUTTONS === -->
+            <div class="payment-instruction">
+                <h3>Admission & Confirmation Steps</h3>
+                <div class="payment-buttons-container">
+                    <div class="payment-box">
+                        <h4>Step 1: Seat Confirmation</h4>
+                        <p>Fee: <strong>4,750 TK</strong></p>
+                        <a href="https://epay.sslcommerz.com/82b4cfbcae11bcaf7cde6d228fe0677bbb2cf48e" target="_blank" class="btn-payment">Pay Confirmation Fee</a>
+                    </div>
+                    <div class="payment-box">
+                        <h4>Step 2: Final Admission</h4>
+                        <p>Fee: <strong>5,000 TK</strong></p>
+                        <a href="https://epay.sslcommerz.com/0396f038d472f88739bb805c7b1954a5b4ee6be8" target="_blank" class="btn-payment">Pay Admission Fee</a>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div class="result-block">
